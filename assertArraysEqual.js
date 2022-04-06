@@ -1,19 +1,20 @@
 const assertArraysEqual = function(arrayOne, arrayTwo) {
-  let lengthMatch = true;
-  let elementMatch = true;
+  console.log((eqArrays(arrayOne, arrayTwo) ?
+    `🟢 Assertion Passed: [${arrayOne}] === [${arrayTwo}]` : `🔴 Assertion Failed: [${arrayOne}] !== [${arrayTwo}]`));
+};
 
+const eqArrays = function(arrayOne, arrayTwo) {
   //check if lengths match
   if (arrayOne.length !== arrayTwo.length) {
-    lengthMatch = false;
+    return false;
   }
   //check if elements match
   for (let i = 0; i < arrayOne.length; i++) {
     if (arrayOne[i] !== arrayTwo[i]) {
-      elementMatch = false;
+      return false;
     }
   }
-  console.log((lengthMatch && elementMatch ?
-    `🟢 Assertion Passed: [${arrayOne}] === [${arrayTwo}]` : `🔴 Assertion Failed: [${arrayOne}] !== [${arrayTwo}]`));
+  return true;
 };
 //should print assertion passed
 assertArraysEqual([1, 2, 3], [1, 2, 3]);
