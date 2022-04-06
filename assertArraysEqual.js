@@ -12,7 +12,7 @@ const assertArraysEqual = function(arrayOne, arrayTwo) {
       elementMatch = false;
     }
   }
-  console.log((lengthMatch && elementMatch ? 
+  console.log((lengthMatch && elementMatch ?
     `🟢 Assertion Passed: [${arrayOne}] === [${arrayTwo}]` : `🔴 Assertion Failed: [${arrayOne}] !== [${arrayTwo}]`));
 };
 //should print assertion passed
