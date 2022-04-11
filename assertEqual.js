@@ -6,12 +6,6 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-assertEqual("Lighthouse Labs", "Bootcamp");
-assertEqual(1, 1);
-
-//Testing other scenarios
-assertEqual("Lighthouse Labs", "Lighthouse Labs"); //Assertion passed
-assertEqual("LighthousE Labs", "Lighthouse Labs"); //Assertion failed
-assertEqual(2, 2); //Assertion passed
-assertEqual(2, 2.0); //Assertion passed
-assertEqual(2, 3); //Assertion failed
+//export assertEqual (variable points to function)
+//Note: this does not call function. Didn't write assertEqual()
+module.exports = assertEqual;
