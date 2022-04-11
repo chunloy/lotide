@@ -1,15 +1,27 @@
 //import modules
 const middle = require('../middle');
-const assertArraysEqual = require('../assertArraysEqual');
+const assert = require('chai').assert;
 
-//test case: array length <= 2
-assertArraysEqual(middle([1]), []); //passed, OK
-assertArraysEqual(middle([1, 2]), []); //passed, OK
+describe("#middle", () => {
+  it("should return [] for [1]", () => {
+    assert.deepEqual(middle([1]), []);
+  });
 
-//test case: odd number arrays
-assertArraysEqual(middle([1, 2, 3]), [2]); //passed, OK
-assertArraysEqual(middle([1, 2, 3, 4, 5]), [3]); //passed, OK
+  it("should return [] for [1, 2]", () => {
+    assert.deepEqual(middle([1, 2]), []);
+  });
 
-//test case: even number arrays
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]); //passed, OK
-assertArraysEqual(middle([1, 2, 3, 4, 5, 6, 7, 8]), [4, 5]); //passed, OK
+  it("should return [3] for [1, 2, 3, 4, 5]", () => {
+    assert.deepEqual(middle([1, 2, 3, 4, 5]), [3]);
+  });
+
+  it("should return [3, 4] for [1, 2, 3, 4, 5, 6]", () => {
+    assert.deepEqual(middle([1, 2, 3, 4, 5, 6]), [3, 4]);
+  });
+
+  it("should return a new array and not modify the original", () => {
+    const originalArray = [1, 2, 3, 4, 5, 6];
+    middle(originalArray);
+    assert.deepEqual(originalArray, originalArray);
+  });
+});
