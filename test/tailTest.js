@@ -1,26 +1,23 @@
 //importing modules
-const assertEqual = require('../assertEqual');
 const tail = require('../tail');
+const assert = require('chai').assert;
 
-//test fails, can't compare arrays like this
-const result = tail(["Hello", "Lighthouse", "Labs"]); //return ["Lighthouse", "Labs"]
-assertEqual(result, ["Lighthouse", "Labs"]);
+describe("#tail", () => {
+  it("should return ['Lighthouse', 'Labs'] for ['Hello', 'Lighthouse', 'Labs']", () => {
+    assert.deepEqual(tail(['Hello', 'Lighthouse', 'Labs']), ['Lighthouse', 'Labs']); //use deep equal for arrays/objects
+  });
 
-//test each element individually
-assertEqual(result[0], "Lighthouse"); //assertion passed
-assertEqual(result[1], "Labs"); //assertion passed
+  it("should return a new array and not modify the original", () => {
+    const originalArray = ['Hello', 'Lighthouse', 'Labs'];
+    tail(originalArray);
+    assert.deepEqual(originalArray, originalArray);
+  });
 
-//test case: check the original array
-const words = ["Yo Yo", "Lighthouse", "Labs"];
-tail(words);  //no need to capture the return value since we aren't checking it
-assertEqual(words.length, 3); //assertion passed, should still have 3 elements
+  it("should return [] for [1]", () => {
+    assert.deepEqual(tail([1]), []);
+  });
 
-//test case: array with one element should return an empty array
-const array = [1];
-const newArray = tail(array);
-console.log(newArray); //empty array
-
-//test case: empty array should return an empty array
-const emptyArray = [];
-const newEmptyArray = tail(emptyArray);
-console.log(newEmptyArray); //empty array
+  it("should return [] for []", () => {
+    assert.deepEqual(tail([]), []);
+  });
+});
