@@ -1,3 +1,6 @@
+//import modules
+const eqArrays = require('./eqArrays');
+
 const eqObjects = function(object1, object2) {
   const keysObject1 = Object.keys(object1);
   const keysObject2 = Object.keys(object2);
@@ -22,37 +25,5 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-const assertEqual = function(actual, expected) {
-  if (actual === expected) {
-    console.log(`🟢 Assertion Passed: ${actual} === ${expected}`);
-  } else {
-    console.log(`🔴 Assertion Failed: ${actual} !== ${expected}`);
-  }
-};
-
-const eqArrays = function(arrayOne, arrayTwo) {
-  //check if lengths match
-  if (arrayOne.length !== arrayTwo.length) {
-    return false;
-  }
-  //check if elements match
-  for (let i = 0; i < arrayOne.length; i++) {
-    if (arrayOne[i] !== arrayTwo[i]) {
-      return false;
-    }
-  }
-  return true;
-};
-
-//test cases:
-const ab = { a: '1', b: '2' };
-const ba = { b: '2', a: '1' };
-const abc = { a: '1', b: '2', c: '3' };
-assertEqual(eqObjects(ab, ba), true); //passed, OK
-assertEqual(eqObjects(ab, abc), false); //passed, OK
-
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, dc), true);
-assertEqual(eqObjects(cd, cd2), false);
+//export modules
+module.exports = eqObjects;
