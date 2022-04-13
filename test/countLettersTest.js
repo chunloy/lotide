@@ -1,5 +1,5 @@
 //import modules
-const  countLetters  = require('../countLetters');
+const countLetters = require('../countLetters');
 const assert = require('chai').assert;
 
 describe("#countLetters", () => {
