@@ -1,5 +1,5 @@
 //import modules
-const { without } = require('../index');
+const without = require('../without');
 const assert = require('chai').assert;
 
 describe("#without", () => {
@@ -14,5 +14,5 @@ describe("#without", () => {
     assert.deepEqual(words, ["hello", "world", "lighthouse"]);
 
   });
-  
+
 });
