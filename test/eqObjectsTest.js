@@ -1,5 +1,5 @@
 //import modules
-const { eqObjects } = require('../index');
+const eqObjects = require('../eqObjects');
 const assert = require('chai').assert;
 
 describe("#eqObjects", () => {
