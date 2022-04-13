@@ -1,5 +1,5 @@
 //import modules
-const { map } = require('../index');
+const map = require('../map');
 const assert = require('chai').assert;
 
 describe("#map", () => {
