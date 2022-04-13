@@ -1,5 +1,5 @@
 //import modules
-const { flatten } = require('../index');
+const flatten = require('../flatten');
 const assert = require('chai').assert;
 
 describe("#flatten", () => {
