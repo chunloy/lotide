@@ -1,5 +1,5 @@
 //import modules
-const { takeUntil } = require('../index');
+const takeUntil = require('../takeUntil');
 const assert = require('chai').assert;
 
 describe("#takeUntil", () => {
