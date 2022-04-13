@@ -1,5 +1,5 @@
 //import modules
-const { findKeyByValue } = require('../index');
+const findKeyByValue = require('../findKeyByValue');
 const assert = require('chai').assert;
 
 describe("#findKeyByValue", () => {
